@@ -118,7 +118,7 @@ int main() {
                 num = "";
                 size2_cop++;
             }
-            else if (ch == '\n' || file.eof()) {
+            else if (ch == '\n' || ch == '\0') {
 
                 n = atof(num.c_str());
                 arr[size1][size2_cop] = n;
