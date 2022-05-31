@@ -98,39 +98,21 @@ int main() {
     double arr[10][100];
     int size1 = 0;
     int size2 = 0;
-    int size2_cop = 0;
 
     if (!file.is_open()) {
         cout << "Ошибка открытия файла" << endl;
     }
     else {
         cout << "Файл открыт" << endl;
-        char ch;
-        double n;
-        string num;
-        while (file.get(ch)) {
+        while (!file.eof()) {
 
-
-            if (ch == ' ') {
-
-                n = atof(num.c_str());
-                arr[size1][size2_cop] = n;
-                num = "";
-                size2_cop++;
-            }
-            else if (ch == '\n' || ch == '\0') {
-
-                n = atof(num.c_str());
-                arr[size1][size2_cop] = n;
-                num = "";
-                size2_cop++;
-                size2 = size2_cop;
-                size2_cop = 0;
-                size1++;
-
-            }
-            else {
-                num += ch;
+            file >> size1 >> size2;
+            for (size_t i = 0; i < size1; i++)
+            {
+                for (size_t j = 0; j < size2; j++)
+                {
+                    file >> arr[i][j];
+                }
             }
 
         }
